@@ -16,7 +16,7 @@
 
 var SHEETNAME = "Budgets";
 var ID_COLUMN = 1;
-var ID_LENGTH = 12;
+var LOOKUP_COLUMN = 3;
 
 function onEdit(edit) {
   var range = edit.range;
@@ -35,14 +35,14 @@ function checkEmptyRows() {
 
     var sheet = SpreadsheetApp.getActive().getSheetByName(SHEETNAME)
     
-    var client_name = sheet.getRange(i, 3).getValue(); // get value from specified column
+    var lookup_val = sheet.getRange(i, LOOKUP_COLUMN).getValue(); // get value from specified column
 
-    var id_col = sheet.getRange(i, 1); // create var for unique id column
+    var id_col = sheet.getRange(i, ID_COLUMN); // create var for unique id column
     var get_id = id_col.getValue(); // get id col
 
     console.log(get_id)
     
-    if(client_name != "" && get_id == ""){ // if empty, return current date as id
+    if(lookup_val != "" && get_id == ""){ // if empty, return current date as id
       sheet.getRange(i, 1).setValue( idGenerator ); // if everything above checks out. use the ID of Date.now()
     }
   }
