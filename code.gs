@@ -23,17 +23,14 @@ function onEdit(edit) {
 function checkEmptyRows() {
   for(var i =1; i < 1000; i++) {
     
-    var idGenerator = "id" + Math.random().toString(16).slice(2)
-
+    var idGenerator = "id" + Math.random().toString(16).slice(2) // generator for the ids
     var sheet = SpreadsheetApp.getActive().getSheetByName(SHEETNAME)
-    
     var lookup_val = sheet.getRange(i, LOOKUP_COLUMN).getValue(); // get value from specified column
-
     var id_col = sheet.getRange(i, ID_COLUMN); // create var for unique id column
     var get_id = id_col.getValue(); // get id col
     
-    if(lookup_val != "" && get_id == ""){ // if empty, return current date as id
-      sheet.getRange(i, 1).setValue( idGenerator ); // if everything above checks out. use the ID of Date.now()
+    if(lookup_val != "" && get_id == ""){ // if all conditions are met, insert value
+      sheet.getRange(i, 1).setValue( idGenerator );
     }
   }
 }
