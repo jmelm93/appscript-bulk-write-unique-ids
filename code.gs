@@ -1,18 +1,12 @@
 // AUTO GENERATE SIMPLE UNIQUE ID'S FOR NON-EMPTY ROWS
 //
-// Purpose: This Google Sheets script fires when any cell is edited and
-// inserts a random (reasonably unique) UID of ID_LENGTH length
-// into the specified ID_COLUMN. For instance if the first column in the
-// sheet specified by SHEETNAME is the column where you would like the
-// UID injected, then ID_COLUMN should be 1.
-//
 // SETTINGS
 // SHEETNAME = Name of spreadsheet to monitor
 // ID_COLUMN = The column where you want your UID injected. Injection corresponds to the row that triggered this script.
+// LOOKUP_COLUMN = The column where you verify value exists in order to only write IDs to valid rows that need it
 // 
 // REFERENCES:
 // https://developers.google.com/apps-script/guides/triggers/events
-// https://www.fiznool.com/blog/2014/11/16/short-id-generation-in-javascript/
 
 var SHEETNAME = "Budgets";
 var ID_COLUMN = 1;
