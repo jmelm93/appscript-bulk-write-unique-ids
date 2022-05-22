@@ -30,7 +30,7 @@ function checkEmptyRows() {
     var get_id = id_col.getValue(); // get id col
     
     if(lookup_val != "" && get_id == ""){ // if all conditions are met, insert value
-      sheet.getRange(i, 1).setValue( idGenerator );
+      sheet.getRange(i, ID_COLUMN).setValue( idGenerator );
     }
   }
 }
